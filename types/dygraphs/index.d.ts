@@ -6,7 +6,7 @@
 /// <reference types="google.visualization" />
 
 declare namespace dygraphs {
-    type DataArray = number[][];
+    type DataArray = (number|Date)[][];
 
     type Data = string | DataArray | google.visualization.DataTable;
 
@@ -21,6 +21,11 @@ declare namespace dygraphs {
          * A per-series color definition. Used in conjunction with, and overrides, the colors option.
          */
         color?: string;
+                
+        /**
+         * A function which plot data for this series on the chart.         
+         */
+        plotter?: any;
 
         /**
          * Draw a small dot at each point, in addition to a line going through the point. This makes
@@ -525,6 +530,12 @@ declare namespace dygraphs {
          * fading), 0=hiddden background (show highlighted series only).
          */
         highlightSeriesBackgroundAlpha?: number;
+
+        /**
+         * Sets the background color used to fade out the series in conjunction with 'highlightSeriesBackgroundAlpha'.
+         * Default: rgb(255, 255, 255)
+         */
+        highlightSeriesBackgroundColor?: string;
 
         /**
          * When set, the options from this object are applied to the timeseries closest to the mouse

@@ -18,7 +18,7 @@ export interface FormStateMap {
 export interface FormState {
     registeredFields: RegisteredFieldState[];
     fields?: {[name: string]: FieldState};
-    values?: { [fieldName: string]: string };
+    values?: { [fieldName: string]: any };
     active?: string;
     anyTouched?: boolean;
     submitting?: boolean;
@@ -36,3 +36,5 @@ export interface FieldState {
     touched?: boolean;
     visited?: boolean;
 }
+
+export default reducer;
